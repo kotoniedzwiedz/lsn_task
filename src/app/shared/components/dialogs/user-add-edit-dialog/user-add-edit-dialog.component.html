@@ -1,0 +1,51 @@
+<div *ngIf="form">
+    <div mat-dialog-title>
+        {{title}}
+    </div>
+    <div [formGroup]="form" class="form-container">
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+            <!-- <mat-error *ngIf="username.hasError('required')">
+                Username is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName">
+            <!-- <mat-error *ngIf="firstName.hasError('required')">
+                First name is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lastName">
+            <!-- <mat-error *ngIf="lastName.hasError('required')">
+                Last name is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+                <mat-option *ngFor="let option of roleOptions" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-select>
+            <!-- <mat-error *ngIf="role.hasError('required')">
+                Rsername is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+        <div class="slide-toggle">
+            <mat-label>Enabled</mat-label>
+            <mat-slide-toggle formControlName="enabled"></mat-slide-toggle>
+
+            <!-- <mat-error *ngIf="role.hasError('required')">
+                Rsername is <strong>required</strong>
+            </mat-error> -->
+        </div>
+    </div>
+    <div class="modal-actions">
+        <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+        <button type="button" mat-stroked-button color="warn" (click)="cancel()">Cancel</button>
+    </div>
+</div>

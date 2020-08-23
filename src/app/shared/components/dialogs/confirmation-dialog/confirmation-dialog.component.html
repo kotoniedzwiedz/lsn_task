@@ -1,0 +1,12 @@
+<div>
+    <div mat-dialog-title>
+        {{title}}
+    </div>
+    <p>
+        {{messageText}}
+    </p>
+    <div class="modal-actions">
+        <button type="submit" mat-raised-button color="primary" (click)="confirm()">Yes</button>
+        <button type="button" mat-stroked-button color="warn" (click)="reject()">No</button>
+    </div>
+</div>

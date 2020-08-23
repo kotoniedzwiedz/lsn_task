@@ -1,0 +1,7 @@
+<div class="mat-elevation-z8">
+    <app-table *ngIf="dataSource" [data]="dataSource" [tableConfig]="tableConfig">
+        <button #add mat-fab color="primary" matTooltip="Add user" (click)="addNewUser()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </app-table>
+</div>
