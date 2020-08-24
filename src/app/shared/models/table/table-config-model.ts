@@ -13,6 +13,7 @@ export interface PaginationConfig {
 
 export interface TableColumn {
     columnName: string;
+    columnType: ColumnType;
     columnKey: string;
     actions?: TableAction[];
     filterConfig?: {
@@ -25,6 +26,14 @@ export interface TableColumn {
 export interface TableAction {
     displayName: string;
     method: (prop: any) => void;
+}
+
+export enum ColumnType {
+    TEXT,
+    NUMBER,
+    SELECT,
+    BOOLEAN,
+    ACTIONS
 }
 
 export enum ColumnFilterType {

@@ -6,23 +6,23 @@
         <mat-form-field>
             <mat-label>Username</mat-label>
             <input matInput formControlName="username">
-            <!-- <mat-error *ngIf="username.hasError('required')">
+            <mat-error *ngIf="form.get('username').errors?.required">
                 Username is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>First name</mat-label>
             <input matInput formControlName="firstName">
-            <!-- <mat-error *ngIf="firstName.hasError('required')">
+            <mat-error *ngIf="form.get('firstName').errors?.required">
                 First name is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Last name</mat-label>
             <input matInput formControlName="lastName">
-            <!-- <mat-error *ngIf="lastName.hasError('required')">
+            <mat-error *ngIf="form.get('lastName').errors?.required">
                 Last name is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Role</mat-label>
@@ -31,17 +31,13 @@
                     {{option}}
                 </mat-option>
             </mat-select>
-            <!-- <mat-error *ngIf="role.hasError('required')">
-                Rsername is <strong>required</strong>
-            </mat-error> -->
+            <mat-error *ngIf="form.get('role').errors?.required">
+                Role is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
         <div class="slide-toggle">
             <mat-label>Enabled</mat-label>
             <mat-slide-toggle formControlName="enabled"></mat-slide-toggle>
-
-            <!-- <mat-error *ngIf="role.hasError('required')">
-                Rsername is <strong>required</strong>
-            </mat-error> -->
         </div>
     </div>
     <div class="modal-actions">

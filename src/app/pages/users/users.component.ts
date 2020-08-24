@@ -2,7 +2,7 @@ import { Component, ViewChild, OnDestroy, OnInit } from '@angular/core';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { UserInterface } from 'src/app/shared/models/user/user-model';
 import { Subscription } from 'rxjs';
-import { TableConfig, ColumnFilterType } from 'src/app/shared/models/table/table-config-model';
+import { TableConfig, ColumnFilterType, ColumnType } from 'src/app/shared/models/table/table-config-model';
 import { UserRole } from 'src/app/shared/models/user/user-role';
 import { UserService } from 'src/app/shared/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -27,23 +27,26 @@ export class UsersComponent implements OnInit, OnDestroy {
     searchByAllColumnsMethod: (value) => this.userService.filterUserData(value),
     columns: [
       {
-        columnName: 'Username', columnKey: 'username',
+        columnName: 'Username', columnKey: 'username', columnType: ColumnType.TEXT,
         filterConfig: {
           isFiltered: true,
           filterType: ColumnFilterType.TEXT
         }
       },
-      { columnName: 'First Name', columnKey: 'firstName' },
-      { columnName: 'Last Name', columnKey: 'lastName' },
+      { columnName: 'First Name', columnKey: 'firstName', columnType: ColumnType.TEXT },
+      { columnName: 'Last Name', columnKey: 'lastName', columnType: ColumnType.TEXT },
       {
-        columnName: 'Role', columnKey: 'role',
+        columnName: 'Role', columnKey: 'role', columnType: ColumnType.SELECT,
         filterConfig: {
           isFiltered: true,
           filterType: ColumnFilterType.SELECT, options: [UserRole.ADMIN, UserRole.USER]
         }
       },
       {
-        columnName: 'Actions', columnKey: 'actions',
+        columnName: 'Enabled', columnKey: 'enabled', columnType: ColumnType.BOOLEAN
+      },
+      {
+        columnName: 'Actions', columnKey: 'actions', columnType: ColumnType.ACTIONS,
         actions: [
           { displayName: 'Delete', method: (user: User) => this.deleteUser(user) },
           { displayName: 'Edit', method: (user: User) => this.editUser(user) },

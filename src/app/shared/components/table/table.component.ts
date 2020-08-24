@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, OnChanges, AfterViewInit, HostListener, ElementRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ColumnFilterType, TableConfig } from '../../models/table/table-config-model';
+import { ColumnFilterType, TableConfig, ColumnType } from '../../models/table/table-config-model';
 import * as _ from 'lodash';
 import { MatOptionSelectionChange } from '@angular/material/core';
 
@@ -18,6 +18,7 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
   @Input() data: T[];
 
   ColumnFilterType = ColumnFilterType;
+  ColumnType = ColumnType;
   displayedColumns: string[];
   dataSource: MatTableDataSource<T>;
 

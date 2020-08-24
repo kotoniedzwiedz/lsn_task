@@ -7,13 +7,14 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    
 }
 
 .modal-actions {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    padding-top: 1rem;
+    padding-top: 2rem;
     button {
         margin: 0 4px;
     }

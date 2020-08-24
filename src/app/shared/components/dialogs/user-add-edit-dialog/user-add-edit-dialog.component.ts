@@ -9,11 +9,12 @@ import { UserRole } from 'src/app/shared/models/user/user-role';
   templateUrl: './user-add-edit-dialog.component.html',
   styleUrls: ['./user-add-edit-dialog.component.scss']
 })
-export class UserAddEditDialogComponent {
+export class UserAddEditDialogComponent implements OnInit {
 
   title = '';
   form: FormGroup;
   roleOptions = [UserRole.ADMIN, UserRole.USER];
+  formControls;
 
   constructor(
     public dialogRef: MatDialogRef<UserAddEditDialogComponent>,
@@ -21,6 +22,10 @@ export class UserAddEditDialogComponent {
   ) {
     this.title = data.title;
     this.form = data.form;
+  }
+
+  ngOnInit() {
+    this.formControls = Object.keys(this.form.controls);
   }
 
   cancel() {
